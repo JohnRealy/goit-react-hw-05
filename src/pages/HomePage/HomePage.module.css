@@ -1,0 +1,9 @@
+.container {
+  margin-top: 30px;
+  margin-left: 0;
+}
+.list {
+  list-style: disc;
+  text-decoration: underline;
+  margin-top: 10px;
+}
