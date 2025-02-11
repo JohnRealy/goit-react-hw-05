@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  gap: 20px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+}
+.img {
+  width: 200px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.nav {
+  display: flex;
+  font-size: 20px;
+  gap: 20px;
+  justify-content: start;
+  padding: 10px 50px;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.active {
+  color: red;
+  text-decoration: underline;
+}
