@@ -1,11 +1,19 @@
-import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useParams } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import { fetchMovieDetails } from "../../api";
 import s from "./MovieDetailsPage.module.css";
 
 export default function MoviesDetailsPage() {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  const goBackUrl = useRef(location?.state ?? "/movies");
   useEffect(() => {
     async function fetchMovies() {
       try {
@@ -20,7 +28,7 @@ export default function MoviesDetailsPage() {
   if (!movie) return <p>Loader...</p>;
   return (
     <section>
-      <Link>Go back</Link>
+      <Link to={goBackUrl.current}>Go back</Link>
       <div className={s.container}>
         <img
           className={s.img}
