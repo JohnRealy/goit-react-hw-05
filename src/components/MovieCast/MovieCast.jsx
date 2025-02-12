@@ -16,7 +16,8 @@ export default function MovieCast() {
       }
     }
     fetchCast();
-  });
+  }),
+    [movieId];
   return cast.length === 0 ? (
     <p>There is no cast for this movie</p>
   ) : (

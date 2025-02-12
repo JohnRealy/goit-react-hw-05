@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { fetchMovieByQuery } from "../../api";
-import { Link, useLocation, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import s from "./MoviesPage.module.css";
+import MovieList from "../../components/MovieList/MovieList";
 
 export default function MoviesPage() {
   const [inputValue, setInputValue] = useState("");
   const [movies, setMovies] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("query") ?? "";
-  const location = useLocation();
+
   useEffect(() => {
     async function fetchMovies() {
       const data = await fetchMovieByQuery(query);
@@ -37,13 +38,7 @@ export default function MoviesPage() {
       </form>
 
       <ul className={s.list}>
-        {movies.map((movie) => (
-          <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`} state={location}>
-              {movie.title}
-            </Link>
-          </li>
-        ))}
+        <MovieList movies={movies} />
       </ul>
     </div>
   );

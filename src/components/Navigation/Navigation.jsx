@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import s from "./Header.module.css";
+import s from "./Navigation.module.css";
 
-export default function Header() {
+export default function Navigation() {
   return (
     <nav className={s.nav}>
       <NavLink className={({ isActive }) => (isActive ? s.active : "")} to="/">
